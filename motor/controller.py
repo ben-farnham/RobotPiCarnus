@@ -36,18 +36,33 @@ def stop():
     GPIO.output(8, 0)
     GPIO.output(9, 0)
     GPIO.output(10, 0)
+    return
 
 def right_wheel(command):
     print("called right_wheel [%s]" % command)
     if(command == MotorCommand.FORWARD):
+        GPIO.output(9, 1)
+        GPIO.output(10, 0)
+    elif(command == MotorCommand.BACKWARD):
         GPIO.output(9, 0)
         GPIO.output(10, 1)
-    elif(command == MotorCommand.BACKWARD):
-        GPIO.output(10, 0)
-        GPIO.output(9, 1)
     else:
+        GPIO.output(9, 0)
         GPIO.output(10, 0)
-        GPIO.output(9, 0) 
+    return
+
+def left_wheel(command):
+    print("called left wheel [%s]" % command)
+    if(command == MotorCommand.FORWARD):
+        GPIO.output(7, 0)
+        GPIO.output(8, 1)
+    elif(command == MotorCommand.BACKWARD):
+        GPIO.output(8, 0)
+        GPIO.output(7, 1)
+    else:
+        GPIO.output(7, 0)
+        GPIO.output(8, 0)
+    return
 
 def turn_right():
     print('called turn_right')

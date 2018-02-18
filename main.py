@@ -39,20 +39,29 @@ while True:
   # The following code detects whether any of the Wiimotes buttons have been pressed and then prints a statement to the screen!
   if (buttons & cwiid.BTN_LEFT):
     print('Left pressed')
-    motor.controller.turn_left()
+    motor.controller.left_wheel(MotorCommand.STOP)
+    motor.controller.right_wheel(MotorCommand.FORWARD)
     time.sleep(button_delay)
-
-  if(buttons & cwiid.BTN_RIGHT):
+    
+  elif(buttons & cwiid.BTN_RIGHT):
     print('Right pressed')
     motor.controller.right_wheel(MotorCommand.STOP)
+    motor.controller.left_wheel(MotorCommand.FORWARD)
     time.sleep(button_delay)
 
-  if (buttons & cwiid.BTN_UP):
+  elif (buttons & cwiid.BTN_UP):
     print('Up pressed')
-    motor.controller.move_forward()
+    motor.controller.right_wheel(MotorCommand.FORWARD)
+    motor.controller.left_wheel(MotorCommand.FORWARD)
     time.sleep(button_delay)
 
-  if (buttons & cwiid.BTN_DOWN):
+  elif (buttons & cwiid.BTN_DOWN):
     print('Down pressed')
-    motor.controller.move_backward()
+    motor.controller.right_wheel(MotorCommand.BACKWARD)
+    motor.controller.left_wheel(MotorCommand.BACKWARD)
+    time.sleep(button_delay)
+
+  else:
+    motor.controller.right_wheel(MotorCommand.STOP)
+    motor.controller.left_wheel(MotorCommand.STOP)
     time.sleep(button_delay)
