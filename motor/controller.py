@@ -23,21 +23,6 @@ def init():
     time.sleep(1)
     print('init: turned all motors off')    
 
-def move_forward():
-    print('called move_forward')
-    return
-
-def move_backward():
-    print('called move_backward')
-    return
-
-def stop():
-    GPIO.output(7, 0)
-    GPIO.output(8, 0)
-    GPIO.output(9, 0)
-    GPIO.output(10, 0)
-    return
-
 def right_wheel(command):
     print("called right_wheel [%s]" % command)
     if(command == MotorCommand.FORWARD):
@@ -62,18 +47,4 @@ def left_wheel(command):
     else:
         GPIO.output(7, 0)
         GPIO.output(8, 0)
-    return
-
-def turn_right():
-    print('called turn_right')
-    GPIO.output(10, 1)
-    time.sleep(0.5)
-    GPIO.output(10, 0)
-    return
-
-def turn_left():
-    print('called turn_left')
-    GPIO.output(7, 1)
-    time.sleep(0.5)
-    GPIO.output(7, 0)
     return

@@ -16,7 +16,10 @@ except RuntimeError:
   quit()
 
 motor.controller.init()
-
+wii.rumble = 1
+time.sleep(1)
+wii.rumble = 0
+    
 print("Wiimote connection established!\nGo ahead and press some buttons\nPress PLUS and MINUS together to disconnect and quit.\n")
 
 time.sleep(3)
