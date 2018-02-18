@@ -4,6 +4,18 @@
 import RPi.GPIO as GPIO # Import the GPIO Library
 import time # Import the Time library
 
+def moveForward():
+    print('called moveForward')
+
+def moveBackward();
+    print('called moveBackward')
+
+def turnRight():
+    print('called turnRight')
+
+def turnLeft();
+    print('called turnLeft')
+    
 print('Setting the GPIO modes')
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)

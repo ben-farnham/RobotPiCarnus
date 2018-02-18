@@ -5,6 +5,7 @@
 # Coded by The Raspberry Pi Guy. Work based on some of Matt Hawkins's!
 
 import cwiid, time
+import motor
 
 button_delay = 0.1
 
@@ -42,18 +43,22 @@ while True:
   # The following code detects whether any of the Wiimotes buttons have been pressed and then prints a statement to the screen!
   if (buttons & cwiid.BTN_LEFT):
     print 'Left pressed'
+    motor.controller.turnLeft()
     time.sleep(button_delay)
 
   if(buttons & cwiid.BTN_RIGHT):
     print 'Right pressed'
+    motor.turnRight()
     time.sleep(button_delay)
 
   if (buttons & cwiid.BTN_UP):
     print 'Up pressed'
+    motor.moveForward()
     time.sleep(button_delay)
 
   if (buttons & cwiid.BTN_DOWN):
     print 'Down pressed'
+    motor.moveBackward()
     time.sleep(button_delay)
 
   if (buttons & cwiid.BTN_1):
